@@ -6,4 +6,4 @@ The great guide on QUBOs and penalties by Fred Glover.
 ## Link
 https://arxiv.org/abs/1811.11538
 
-#paper #todo-fast
+#paper 

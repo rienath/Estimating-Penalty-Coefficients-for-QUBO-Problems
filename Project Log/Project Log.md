@@ -270,7 +270,10 @@ Get more familiar with the Digital Annealer.
 * Read [[Partial structure learning by subset Walsh transform]]
 
 ### Completed
-
+* Make git repository
+* Read the entire honours guidelines document
+* Read [[Introduction to Walsh Analysis]]
+* Read [[Embedding Inequality Constraints for Quantum Annealing Optimization]]
 
 ## Meeting (7/10/2021)
 ### Before 
@@ -278,5 +281,6 @@ Get more familiar with the Digital Annealer.
 * Read [[Partial structure learning by subset Walsh transform]]
 
 ### During
+* One of the lit review grading aspects: analysis of context and consideration of alternatives. What does it mean?
 
 ### After
