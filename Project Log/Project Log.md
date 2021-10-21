@@ -284,3 +284,33 @@ Get more familiar with the Digital Annealer.
 * One of the lit review grading aspects: analysis of context and consideration of alternatives. What does it mean?
 
 ### After
+
+
+
+*****
+
+
+
+# Week 8
+## Objectives
+* Understand Walsh Transformations and try to link it to Penalty values
+
+## Tasks
+### To-do
+
+* Watch [[Surrogate-assisted Multi-objective Combinatorial Optimization]]
+
+### Completed
+* Read the lecture sent by Professor McCall
+* Read the relevant part of [[The Role of Walsh Structure and Ordinal Linkage in the Optimisation of Pseudo-Boolean Functions under Monotonicity Invariance]]
+* Go through [[Genetic Algorithms and Walsh Functions; Part I, A Gentle Introduction]]
+
+## Meeting (21/10/2021)
+### During
+Talk about Walsh interactions.
+Are we talking about i-i pairs?
+Ways to calculate penalty.
+Possible benchmarks.
+Numerical approach.
+
+### After
