@@ -309,8 +309,92 @@ Get more familiar with the Digital Annealer.
 ### During
 Talk about Walsh interactions.
 Are we talking about i-i pairs?
+Complexity.
 Ways to calculate penalty.
 Possible benchmarks.
 Numerical approach.
+
+### After
+
+
+
+*****
+
+
+
+# Week 9 
+## Objectives
+* Start writing the Literature Review
+
+## Tasks
+### To-do
+* Read paragraph 3 of [[Multivariate Markov networks for fitness modelling in an estimation of distribution algorithm]]
+
+### Completed
+* Make a template of lit review
+* Make a draft of *Annealing* section
+* Make a draft of *Simulated Annealing* section
+
+## Meeting (28/10/2021)
+### During
+* Talked about writing Lit Review
+* We are better at saying things rather than writing things. Maybe it is better to first explain verbally what I am about to write?
+
+
+
+*****
+
+
+
+# Week 10
+## Objectives
+* Walsh interactions
+
+## Tasks
+### To-do
+* Email Dr Christie
+
+### Completed
+* Read [[Walsh Functions A Gentle Introduction sources Complex Systems]]
+* Read paragraph 3 of [[Multivariate Markov networks for fitness modelling in an estimation of distribution algorithm]]
+* [[Simulated Stochastic Approximation Annealing for Global Optimization With a Square-Root Cooling Schedule]]
+
+## Meeting (4/11/2021)
+### During
+* So we convert the penalty function into energy distribution function defined as a sum of Walsh coefficients of a clique, α, times the Walsh functions of a clique. See the image. Where α are the interactions of the clique we are looking at.
+* So ultimately, we are trying to find α coefficients?
+* We will have perfect model structure as all the interactions are explicitly defined.
+* We do not care about the fitness of individuals.
+
+### After
+Least squares estimation
+Estimation of Markov Random Field
+
+
+
+*****
+
+
+
+# Week 11
+## Objectives
+* Lit review
+
+## Tasks
+### Completed
+* Simulated Annealing draft 2
+* Quantum Annealing draft 1
+* [[Quantum annealing]]
+* [[Quantum Deep Learning; Sampling Neural Nets with a Quantum Annealer]]
+* [[QUANTUM ANNEALING AND QUANTUM FLUCTUATION EFFECT IN FRUSTRATED ISING SYSTEMS]]
+* [[Quantum annealing; An introduction and new developments]]
+* [[OPTIMIZATION BY SIMULATED ANNEALINGl AN EXPERIMENTAL EVALUATION; PART 1, GRAPH PARTITIONIN]]
+
+## Meeting (11/11/2021)
+### During
+> Quantum Annealing
+> Monday: All but Walsh
+> Wednesday: All
+> Friday Deadline
 
 ### After
