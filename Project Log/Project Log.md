@@ -389,12 +389,15 @@ Estimation of Markov Random Field
 * [[QUANTUM ANNEALING AND QUANTUM FLUCTUATION EFFECT IN FRUSTRATED ISING SYSTEMS]]
 * [[Quantum annealing; An introduction and new developments]]
 * [[OPTIMIZATION BY SIMULATED ANNEALINGl AN EXPERIMENTAL EVALUATION; PART 1, GRAPH PARTITIONIN]]
+* [[Digital Annealer for quadratic unconstrained binary optimization; a comparative performance analysis]]
+* [[Ising formulations of many NP problems]]
+* Digital Annealer draft 1
+* QUBO intro draft 1
 
 ## Meeting (11/11/2021)
 ### During
-> Quantum Annealing
-> Monday: All but Walsh
-> Wednesday: All
-> Friday Deadline
+* Quantum Annealing
+* Friday Deadline
+* Can video lecture be a reference
 
-### After
+
