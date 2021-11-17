@@ -401,3 +401,65 @@ Estimation of Markov Random Field
 * Can video lecture be a reference
 
 
+*****
+
+
+
+# Week 12
+## Objectives
+* Lit review
+
+## Tasks
+### To-do
+* ML penalty optimization
+* Algorithms for QUBOs
+* Introduction
+* Add Walsh interactions to Numerical 2
+* Figures and tables
+* Summary
+* Fix Simulated Annealing section
+* Fix Q matrix with arbitrary value of 8
+* Number the formulas
+* Pseudocode with labels and lines
+
+### Completed
+* QUBO model
+* Constraints and Penalties
+* Natural QUBO Formulation
+* Non-Natural QUBO Formulation
+* Analytical penalty optimization 
+* Numerical 1 penalty optimization 
+* Numerical 2 penalty optimization 
+
+## Meeting (17/11/2021)
+### During
+* Feedback
+* Word limit (including references or not)
+* Pseudocode table of contents
+* Figure contents
+* Line numbers in pseudocode
+* Label the pseudocode
+* Motivation, focus structure (introduction section)
+* What CO are
+* Solving them quickly is important 
+* One promising approach is Walsh interactions which attached explicit energy to energies of the variables, which is naturally. In Lewis part
+* Identify the gaps in summary and propose research question
+* Why am I describing all of this
+* Explain objective function
+* Number equations
+
+### After
+* Word limit is 5000 + 10% with references
+* Pseudocode should be labeled, numbered, have line counts and be in table of contents.
+* There should be a table of figures and table of tables
+* Need to add an introduction with the motivation (including what CO problems are and why it is important to be able to solve them quickly), what the following sections will describe and why it is important for our motivation
+* Numerical 2 approach. Say in the summary that one promising approach is to use Walsh interactions. They explicitly attach energy to the variables in a way that is natural to boolean functions like QUBO
+* Make figures better
+* Explain what an objective function is when I introduce it
+* Number the equations
+* Do not add arbitrary value of M=8 to the Q matrix, but rather see how M affects the matrix.
+* In summary, summarize all we have talked about. Identify gaps in research and propose a direction to move into (reduce M from numerical 2 by taking into account the quadratic penalties)
+* We do not flip the negative in SA when maximizing
+* Do the algorithms section
+* Write about the the machine learning approach
+
