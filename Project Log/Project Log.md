@@ -414,7 +414,6 @@ Estimation of Markov Random Field
 * Introduction
 * Figures and tables
 * Summary
-* Fix Q matrix with arbitrary value of 8
 * Number the formulas
 * Pseudocode with labels and lines
 * Maybe? float imperfections from QROSS
@@ -431,6 +430,7 @@ Estimation of Markov Random Field
 * Fix Simulated Annealing section
 * Algorithms for QUBOs
 * Add Walsh interactions to Numerical 2
+* Fix Q matrix with arbitrary value of 8
 
 ## Meeting (17/11/2021)
 ### During
