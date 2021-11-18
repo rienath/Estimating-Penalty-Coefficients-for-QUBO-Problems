@@ -411,16 +411,13 @@ Estimation of Markov Random Field
 
 ## Tasks
 ### To-do
-* ML penalty optimization
-* Algorithms for QUBOs
 * Introduction
-* Add Walsh interactions to Numerical 2
 * Figures and tables
 * Summary
-* Fix Simulated Annealing section
 * Fix Q matrix with arbitrary value of 8
 * Number the formulas
 * Pseudocode with labels and lines
+* Maybe? float imperfections from QROSS
 
 ### Completed
 * QUBO model
@@ -430,6 +427,10 @@ Estimation of Markov Random Field
 * Analytical penalty optimization 
 * Numerical 1 penalty optimization 
 * Numerical 2 penalty optimization 
+* ML penalty optimization
+* Fix Simulated Annealing section
+* Algorithms for QUBOs
+* Add Walsh interactions to Numerical 2
 
 ## Meeting (17/11/2021)
 ### During
