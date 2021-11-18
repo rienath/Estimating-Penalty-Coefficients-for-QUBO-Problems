@@ -412,7 +412,6 @@ Estimation of Markov Random Field
 ## Tasks
 ### To-do
 * Introduction
-* Figures and tables
 * Summary
 * Number the formulas
 * Pseudocode with labels and lines
@@ -431,6 +430,7 @@ Estimation of Markov Random Field
 * Algorithms for QUBOs
 * Add Walsh interactions to Numerical 2
 * Fix Q matrix with arbitrary value of 8
+* Figures and tables
 
 ## Meeting (17/11/2021)
 ### During
