@@ -410,9 +410,6 @@ Estimation of Markov Random Field
 * Lit review
 
 ## Tasks
-### To-do
-* Introduction
-* Summary
 
 ### Completed
 * QUBO model
@@ -430,6 +427,8 @@ Estimation of Markov Random Field
 * Figures and tables
 * Number the formulas
 * Pseudocode with labels, lines and table of algorithms
+* Introduction
+* Summary
 
 ## Meeting (17/11/2021)
 ### During
