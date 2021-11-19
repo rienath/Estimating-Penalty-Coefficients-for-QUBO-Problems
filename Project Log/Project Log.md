@@ -413,9 +413,6 @@ Estimation of Markov Random Field
 ### To-do
 * Introduction
 * Summary
-* Number the formulas
-* Pseudocode with labels and lines
-* Maybe? float imperfections from QROSS
 
 ### Completed
 * QUBO model
@@ -426,11 +423,13 @@ Estimation of Markov Random Field
 * Numerical 1 penalty optimization 
 * Numerical 2 penalty optimization 
 * ML penalty optimization
-* Fix Simulated Annealing section
-* Algorithms for QUBOs
+* Fix Simulated Annealing section (negative when maximizing)
+* Write and collapse Libraries and Algorithms sections into a single one
 * Add Walsh interactions to Numerical 2
 * Fix Q matrix with arbitrary value of 8
 * Figures and tables
+* Number the formulas
+* Pseudocode with labels, lines and table of algorithms
 
 ## Meeting (17/11/2021)
 ### During
@@ -444,7 +443,7 @@ Estimation of Markov Random Field
 * What CO are
 * Solving them quickly is important 
 * One promising approach is Walsh interactions which attached explicit energy to energies of the variables, which is naturally. In Lewis part
-* Identify the gaps in summary and propose research question
+* In summary, summarize everything and form a research question (or repeat the one from the project proposal)
 * Why am I describing all of this
 * Explain objective function
 * Number equations
