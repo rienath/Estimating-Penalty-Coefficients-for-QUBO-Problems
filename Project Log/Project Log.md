@@ -401,6 +401,7 @@ Estimation of Markov Random Field
 * Can video lecture be a reference
 
 
+
 *****
 
 
@@ -462,3 +463,149 @@ Estimation of Markov Random Field
 * Do the algorithms section
 * Write about the the machine learning approach
 
+
+
+*****
+
+
+
+# Week 13
+## Meeting (24/11/2021)
+* Discuss changes made to the literature review 
+
+
+
+*****
+
+
+
+# Week 14
+## Objectives 
+* Understand what requirements engineering requires
+
+## Tasks
+### Completed
+* Read requirements lecture 1
+* Read requirements lecture 2
+* Make a rough sketch of requirements
+* Give the sketch a structure
+* [[D-Wave Guide]]
+* Add the little details
+
+
+## Meeting (07/12/2021)
+### During
+* Talk about requirements engineering
+* How many pages (2?)
+* Scientific requirements. What are they like? 
+* MOSCOW
+* Specify that it is for one constrained function 
+* Might be used for more, but it is not a necessity
+* Must be tested on classical 
+* Could be tested on DA
+* Should work with QUBO
+* Might work with Ising Spinning Glass
+* Combinatorial problem
+* Should be tested using at least two datasets
+* Should be tested with other solutions
+	*	Specify solutions
+* Any stakeholders 
+* How to measure differences
+* Rigorous statistical testing / analysis of results
+* Requirement related to the company
+* Time constraints
+* Visualisation requirements? 
+* Single solution time requirements
+* What sections? Functional, non-functional of the experiment, any more
+
+* Easy to swap problems in and out
+* Moscow colored table
+* Methods of settings penalties
+* Have a way of evaluating the effect the have on performance of Digital Annealer
+* 2 parts (experiment, software developed)
+
+
+
+*****
+
+
+
+# Week 15
+## Objectives
+* Finish Requirements Engineering
+
+## Tasks
+### Completed 
+* Finish Requirements Engineering
+* Make post-meeting changes
+
+## Meeting
+### During
+* Discuss Carnegie Scholarship
+* Discuss the deliverable
+
+## After
+Fix the following:
+* Find -> generate penalty coefficients
+* Calculate -> generate M
+* Always say *M*
+* Completed -> basic working version
+* Deadline of experiments -> All experimental hypotheses must be tested until middle week of February
+
+
+
+*****
+
+
+
+# Week 16
+## Meeting
+### During
+* When using D-Wave libraries, do we manually do the multiplication of penalty coefficient with the constraint function and then addition with the original objective function? 
+* Permutation problem
+* Find an expression
+
+*RUN 1*
+* Try to estimate the denominator with bit flips
+* Solve 
+* Check if answers are feasible
+
+*RUN 2*?
+* Try to estimate the denominator with bit flips
+* Solve 
+* Check if answers are feasible
+* Take infeasible solutions and increase P by 2
+* Solve
+* Repeat 2 last 3 steps
+
+
+
+*****
+
+
+
+# Holiday
+## Objective
+- Proof of concept
+
+## Meeting
+### During
+- Show progress
+- Set goals
+
+
+
+*****
+
+
+
+# Week 17
+## Objective
+- Run Time Distribution implementation
+
+## Tasks
+- Read [[On the Use of Run Time Distributions to Evaluate and Compare Stochastic Local Search Algorithms]]
+- Find a way to implement Run Time Distribution
+- Implement new Penalty algorithm
+
+## Meeting
