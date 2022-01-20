@@ -601,11 +601,30 @@ Fix the following:
 
 # Week 17
 ## Objective
-- Run Time Distribution implementation
+- Run Length Distribution implementation
 
 ## Tasks
-- Read [[On the Use of Run Time Distributions to Evaluate and Compare Stochastic Local Search Algorithms]]
-- Find a way to implement Run Time Distribution
+- ~~Read [[On the Use of Run Time Distributions to Evaluate and Compare Stochastic Local Search Algorithms]]
+- ~~Find a way to implement Run Length Distribution
 - Implement new Penalty algorithm
+~~- Read [[Incorporating a Metropolis method in a distribution estimation using Markov random field algorithm]]
+* ~~Read  [[Towards a Characterisation of the Behaviour of Stochastic Local Search Algorithms for SAT]]
+* ~~Implement RLD for greedy algorithm
+* ~~Implement RtD for tabu search
 
 ## Meeting
+### During
+- RLD Notes
+	- We need to test it on a single problem rather than a cluster of different ones. I will just pick a problem just like in the [[Incorporating a Metropolis method in a distribution estimation using Markov random field algorithm]]  paper.
+	- _"The RLD shows, for each algorithm, the cumulative percentage of successful runs that terminated within a certain number of function evaluations"._
+	- All the papers I have came across had a clear indication of success for the algorithm (the solution). But QUBO has no clear solution. I think it is fair to use mean solution cost of Verma and Lewis as a target.
+	- RLD cannot be implemented for Simulated Annealing in the form it appears in the dwave-neal. It works on predefined number of steps.
+	- RLD with tabu 
+
+
+### After
+- Describe what I am doing in clear and unambiguous way
+- Show distribution of energies (box-plot)
+- Try RLD on small, medium and large problem
+
+
