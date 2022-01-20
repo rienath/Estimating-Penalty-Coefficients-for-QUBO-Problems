@@ -13,3 +13,8 @@ Chose 3 samplers.
 	- Fastai
 	- tqdm
 	- Classical approach through IPython
+- RLD and RTD
+	- Why RLD is better
+	- Natural implementation of RLD for greedy
+	- Struggles of RLD for tabu and SA
+	- Implementation of RTD for tabu
