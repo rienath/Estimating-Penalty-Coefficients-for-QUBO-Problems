@@ -628,3 +628,57 @@ Fix the following:
 - Try RLD on small, medium and large problem
 
 
+
+*****
+
+
+
+# Week 18
+## Objective
+- Coding
+- Explaining the approach
+
+## Tasks
+- ~~Fix the weird energy levels
+- ~~Add another dataset
+- ~~Code new penalty estimation method
+- ~~Write an explanation to what is going on
+- ~~Make a notebook that shows how the penalty value will change and why
+
+## Potential future work
+- Make a python module, refactor code
+- Run experiments
+- Add statistical testing
+- Tune hyperparameters
+- Implement new penalty estimation method
+- Add new problems 
+- Tables and graphs
+
+
+*****
+
+
+
+# Week 19
+## Objective
+- Statistical significance
+
+## Tasks
+- ~~Change some formulas in Lit Review
+- ~~Research tests
+- Code t-test
+
+
+
+*****
+
+
+
+# Week 20
+## Objective
+- Refactoring
+
+## Tasks
+- ~~Change some formulas in Lit Review
+- Email Mayowa about double quadratic penalties
+- Refactor code
