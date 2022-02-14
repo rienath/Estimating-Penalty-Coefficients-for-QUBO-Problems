@@ -18,3 +18,35 @@ Chose 3 samplers.
 	- Natural implementation of RLD for greedy
 	- Struggles of RLD for tabu and SA
 	- Implementation of RTD for tabu
+
+# How experiment works
+## Loading data
+- Load dataset 1 with small problems
+- Load dataset 2 with large problems
+- Merge them
+
+## Data preparation
+- Make QUBOS:
+	- QUBO that represents the objective function
+	- QUBO that represents the constraint function
+- Calculate penalties
+- Make the final QUBO, which includes both functions and penalty coefficient
+	- Change it to the format D-Wave understands
+
+## Experiments
+- Set number x, which is the number of results we want to get from every algorithm. This is also the range of seeds that we will use (1-x) to obtain different results
+- Run greedy algorithm x times
+	- Every xth run will have n subruns
+	- Where we choose run with minimum energy
+	- To make it fair as other algorithms take longer to run
+- Run simulated annealing
+- Run tabu search
+
+## Analysis
+- Record the results
+	- The problems (sizes and penalty coefficients), objective function value, number of broken constraints and total energy. There are different tables with different representations as we have many problems and many runs.
+	- Calculate feasible runs (max x) for every problem. Find total, mean and SD
+- Make a run length distribution for greedy algorithms
+- Make a run time distribution for tabu search
+
+9-11, 15 February
