@@ -680,5 +680,5 @@ Fix the following:
 
 ## Tasks
 - ~~Change some formulas in Lit Review
+- ~~Methodify the main pipeline
 - Email Mayowa about double quadratic penalties
-- Refactor code
