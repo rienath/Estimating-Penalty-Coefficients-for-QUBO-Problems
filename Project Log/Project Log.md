@@ -682,3 +682,9 @@ Fix the following:
 - ~~Change some formulas in Lit Review
 - ~~Methodify the main pipeline
 - Email Mayowa about double quadratic penalties
+
+## Penalty ideas
+* Do a very slow binary tree search (all possibilities)
+	* Exhaustive search kills the entire purpose of optimization
+* Double search
+* Don't we have to square penalty function?
