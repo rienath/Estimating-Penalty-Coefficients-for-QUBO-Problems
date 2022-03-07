@@ -674,17 +674,84 @@ Fix the following:
 
 
 
-# Week 20
+# Weeks 20-21
 ## Objective
-- Refactoring
+- Statistical significance
+- Code improvement
 
 ## Tasks
 - ~~Change some formulas in Lit Review
 - ~~Methodify the main pipeline
-- Email Mayowa about double quadratic penalties
+- Email Mayowa about double quadratic penalties and squared penalty function
+- ~~Make nice RLD and RTD graphs
+- ~~Find statistical significance test
+	- T-test
+	- Null hypothesis: new penalty estimation technique will not produce penalty coefficients that will significantly affect the ground energies achieved in any of the problems across every algorithm.
+		- Run an algorithm on all problems many times with both sets of penalty coefficients.
+		- Check if the difference in means was significant in the problems (compare the problems independently).
+		- See if difference was positive or negative, where it was spotted.
+		- Do it with another algorithm and repeat the process.
+		- Do it with another dataset and repeat the process.
+	* Null hypothesis: new penalty estimation technique will not produce penalty coefficients that will significantly affect the ground energies achieved in all problems and across every algorithms.
+		* Take all runs of all problems as equals.
+		* Calculate general difference.
+	* __Using energy as statistical significance test is a bad idea as different penalty values will most certainly affect the significance. And lower penalty values, for example 0, will give the best energies. But they will also break the most constraints. In statistical significance testing we have to capture the number of constraints that were broken rather than the energy__
+* ~~Make nice RLD and RTD plots
+* ~~Code data saving and loading
+* ~~Make a table with the number of constraints broken
+* ~~Code statistical test 1 
+* ~~Code statistical test 2
 
 ## Penalty ideas
 * Do a very slow binary tree search (all possibilities)
-	* Exhaustive search kills the entire purpose of optimization
+	* Exhaustive search kills the entire purpose of optimisation
 * Double search
 * Don't we have to square penalty function?
+
+
+
+*****
+
+
+
+# Week 22
+## Objective
+- Minor code improvements
+- Initial dissertation
+
+## Tasks
+- Cover page
+- ~~Make draft sections
+- ~~Acknowledgments
+- ~~Choose best answer, not first during minimisation
+
+## Meeting
+- Can I use different university logo for cover page? 
+	- Yes
+- Make a single sentence and make the whole dissertation a document meant for the reader to understand that sentence
+- "To optimise better with QA, we need to choose a penalty coefficient that will punish the algorithm for ..., and to choose a better penalty coefficient, I have made a more informed algorithm, but sacrificed guarantees of feasibility"
+- The dissertation can have the following sections
+	- Project Overview 
+		- Project proposal
+	* Literature Review
+	* Design & Implementation
+		- Talk about choices (jupyter notebooks etc...)
+	- Results 
+		- Show tables, graphs etc... Talk about the results
+	- Conclusion 
+
+
+
+*****
+
+
+
+# Week 23
+## Objective
+* Penalty functions
+* Implementation section
+
+## Tasks
+* ~~Make Penalty class with different penalty generation algorithms
+* ~~Split all supplementary methods into classes
+* ~~Make a python module with all the code used in experiments
