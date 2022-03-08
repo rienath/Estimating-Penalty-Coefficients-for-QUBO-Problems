@@ -755,3 +755,5 @@ Fix the following:
 * ~~Make Penalty class with different penalty generation algorithms
 * ~~Split all supplementary methods into classes
 * ~~Make a python module with all the code used in experiments
+* ~~Methodify Run Time/Length Distribution code
+* Make Figures class
