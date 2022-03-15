@@ -32,7 +32,7 @@ class Table:
                                          'Energy (minimisation)': energies}))
         return results
 
-    # Show  energies/broken constraints/objective function values of all tries in all problems in a single df
+    # Show  energies, broken constraints or objective function values of all tries in all problems in a single df
     @staticmethod
     def columns_to_table(results, column_name):
         energies = pd.DataFrame()
@@ -68,11 +68,15 @@ class Table:
         stats['Energy mean'] = energies.mean(axis=1)
         # Calculate energy standard deviation
         stats['Energy SD'] = energies.std(axis=1)
-        # Calculate total row
-        stats.loc['Total'] = stats.sum()
-        # Calculate mean row
-        stats.loc['Mean'] = stats.mean()
-        # Calculate SD row
-        stats.loc['SD'] = stats.std()
+        # Calculate total, mean and standard deviation rows
+        # Calculate them first, then add to the table. Otherwise,
+        # the new table entries will be used in subsequent
+        # calculations
+        total = stats.sum()
+        mean = stats.mean()
+        sd = stats.std()
+        stats.loc['Total'] = total
+        stats.loc['Mean'] = mean
+        stats.loc['SD'] = sd
 
         return stats
