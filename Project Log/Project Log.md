@@ -746,7 +746,7 @@ Fix the following:
 
 
 
-# Week 23
+# Week 23-24
 ## Objective
 * Penalty functions
 * Implementation section
@@ -757,3 +757,101 @@ Fix the following:
 * ~~Make a python module with all the code used in experiments
 * ~~Methodify Run Time/Length Distribution code
 * ~~Make visualisation module
+* Tune hyperparameters
+	* ~~Make a list of possible hyperparameters to tune
+
+## Final Questions to Mayowa
+I am not sure I entirely understand the given methods. So in Verma and Lewis method we go through every single row and see how a bit flip would affect it. But we do not multiply the quadratic coefficients by 2.  In examples the quadratic coefficients are always twice smaller in a QUBO row as there will be another instance of the same coefficient, just in a different row. So 6x1x6 will be a 3 in row 1 and a 3 in row 6, but when they are added together, they will make a 6.
+
+## Meeting
+* Show the python package
+* Show new notebooks
+	* How clean it is and how to change the penalty/data
+* Hyperparameters
+* Word/LaTeX
+
+
+
+*****
+
+
+
+# Week 25
+## Tasks
+* Tune hyperparameters
+* Load other datasets
+* Transfer word submissions to LaTeX
+
+## Tasks
+* ~~LaTeX styles
+* ~~LaTeX title page
+* ~~LaTeX Project Overview
+* LaTeX Lit Review
+* Jupyter Notebook for another dataset
+* ~~Test hyperparameters
+
+## Meeting
+* Is RTD for tabu search reasonable? As we are defining how long each run will take before we run the algorithm. Thus we know that run time of all runs, both successful and unsuccessful, will be roughly the same.
+* What target energy to use with RLD? Currently, I am using mean energy. But then if I repeat this experiment with another penalty coefficient algorithm, mean will change and RLD will change. In a way that will prohibit us from comparing them. At the same time, it is impossible to deduce energy that corresponds to a feasible solution.
+* Hyperparameter tactics: choose tabu search hypereparameters that give solution rate 0.5, 
+* Run tabu many times with different times for RTD
+* For RLD check all solutions for feasibility and base the graph on it
+* Move project plan to Appendix
+* 1.6 Content Summary (explain the overall structure)
+* Add line numbers to algorithms
+
+
+
+*****
+
+
+
+# Week 26
+## Objectives
+* LaTeX
+* New notebooks for other datasets
+
+## Tasks
+* ~~LaTeX Lit Review
+* ~~Add line numbers to algorithms
+* ~~Move project proposal to Appendix
+* ~~Content Summary section at the end
+* ~~Make a notebook for Quadratic Assignment Problem
+* ~~Make a data preparation method for other datasets
+* ~~Make a notebook for Travelling Salesman Problem
+	* ~~We run TSP large and small separately because large run for significantly longer time
+
+## Meeting
+- Report presentation
+- Ask about testing (in mark scheme)
+- Starting to see interesting things: MKP was super fast!
+- TSP split into 2 parts: large and small
+- Decided to tune hyperparameters more thoroughly
+- Give algorithms X time per dataset rather than problem
+	* Datasets can have different number problems
+	* Problems are of different difficulty
+* Testing subsections
+	* Write something general about approach to software engineering
+	* Unit tests?
+	* Major decision issues 
+	* Efficiency
+	* Issues that I have faced when working
+
+
+
+*****
+
+
+
+# Week 27
+## Objectives
+* LaTeX
+
+## Tasks
+* Move Requirements Engineering to LaTeX
+* Add a section explaining Multiple Knapsack Problem to the dissertation
+* Add a section explaining Travelling Salesman Problem to the dissertation
+* Add a section explaining Quadratic Assignment Problem to the dissertation
+* Code the discussed penalty estimation algorithm
+* Research Gaussian Elimination
+* Think about turning point penalty estimation algorithm
