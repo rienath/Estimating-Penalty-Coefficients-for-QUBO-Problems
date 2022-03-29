@@ -45,11 +45,27 @@ class Experiment:
         return new_q
 
     # Kwargs are for the penalty algorithms
+    # Light version of data prep. Can be applied when objective and constraint function QUBOs have already been
+    # formulated.
     @classmethod
-    def data_prep(cls, qubo_sizes, objectives, constraints, penalty_algorithm_name, minimization=False, **kwargs):
+    def data_prep_light(cls, obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs):
+        # Calculate penalties
+        penalty_algorithm = PenaltyAlgorithm(penalty_algorithm_name)
+        penalties = [penalty_algorithm.generate_penalties(i, **kwargs) for i in obj_qubos]
         # If we are solving maximization problem, we will need to convert it to
-        # minimization by multiplying the objective function by -1
-        coef = 1 if minimization else -1
+        # minimisation by multiplying the objective function by -1
+        coef = 1 if minimisation else -1
+        # QUBO matrix with constraints (no constants)
+        qs = [coef * obj_qubo + penalty * con_qubo for obj_qubo, penalty, con_qubo in
+              zip(obj_qubos, penalties, con_qubos)]
+        # Change QUBO matrix to the dwave format
+        qs = [cls.__convert_qubo_to_dwave_format(q) for q in qs]
+        return qs, penalties
+
+    # Kwargs are for the penalty algorithms
+
+    @classmethod
+    def data_prep(cls, qubo_sizes, objectives, constraints, penalty_algorithm_name, minimisation, **kwargs):
         # Get the unconstrained objective function and the constraint function with constants
         obj_qubos, obj_constants, con_qubos, con_constants = [], [], [], []
         for i in range(len(qubo_sizes)):
@@ -61,17 +77,9 @@ class Experiment:
             const = cls.__convert_1d_qubo_to_2d(constraints[i], qubo_sizes[i])
             con_qubos.append(const[0])
             con_constants.append(const[1])
-        # Calculate penalties
-        penalty_algorithm = PenaltyAlgorithm(penalty_algorithm_name)
-        penalties = [penalty_algorithm.generate_penalties(i, **kwargs) for i in obj_qubos]
-        # QUBO matrix (no constraints)
-        qs = [coef * obj_qubo + penalty * con_qubo for obj_qubo, penalty, con_qubo in
-              zip(obj_qubos, penalties, con_qubos)]
-        # Change QUBO matrix to the dwave format
-        qs = [cls.__convert_qubo_to_dwave_format(q) for q in qs]
-        # Constants
-        # cs = [obj_constant+ penalty * con_constant for obj_constant, penalty, con_constant in zip(obj_constants,
-        # penalties, con_constants)]
+        # Make full QUBOs and generate penalty coefficients
+        qs, penalties = cls.data_prep_light(obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs)
+
         return qs, penalties, obj_qubos, obj_constants, con_qubos, con_constants
 
     @staticmethod
@@ -96,7 +104,7 @@ class Experiment:
                 y = np.array([int(solution[i]) for i in range(len(solution))])
 
                 # Even though we have multiplied the objective function by -1 to
-                # transfer it to minimization problem when defining a QUBO,
+                # transfer it to minimisation problem when defining a QUBO,
                 # we do not need to multiply it by -1 again as we are using the original
                 # unmultipled objective function here.
                 # So here we will have the original objective function value
