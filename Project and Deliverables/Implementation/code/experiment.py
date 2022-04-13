@@ -51,7 +51,10 @@ class Experiment:
     def data_prep_light(cls, obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs):
         # Calculate penalties
         penalty_algorithm = PenaltyAlgorithm(penalty_algorithm_name)
-        penalties = [penalty_algorithm.generate_penalties(i, **kwargs) for i in obj_qubos]
+        if con_qubos:
+            penalties = [penalty_algorithm.generate_penalties(i, j, **kwargs) for (i, j) in zip(obj_qubos, con_qubos)]
+        else:
+            penalties = [penalty_algorithm.generate_penalties(i, **kwargs) for i in obj_qubos]
         # If we are solving maximization problem, we will need to convert it to
         # minimisation by multiplying the objective function by -1
         coef = 1 if minimisation else -1
@@ -104,7 +107,7 @@ class Experiment:
                 y = np.array([int(solution[i]) for i in range(len(solution))])
 
                 # Even though we have multiplied the objective function by -1 to
-                # transfer it to minimisation problem when defining a QUBO,
+                # transfer it to minimisation problem when defining a QUBO if it was maximisation,
                 # we do not need to multiply it by -1 again as we are using the original
                 # unmultipled objective function here.
                 # So here we will have the original objective function value
