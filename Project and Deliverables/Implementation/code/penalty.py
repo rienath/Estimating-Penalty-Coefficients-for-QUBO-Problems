@@ -15,6 +15,7 @@ class PenaltyAlgorithm:
         self.algorithm = algorithm
 
     def generate_penalties(self, obj_qubos, con_qubos=None, monotone_value=None):
+        # Match input penalty algorithm name to the actual algorithm
         match self.algorithm:
             case 'Verma&Lewis':
                 return self.__verma_and_lewis(obj_qubos)
@@ -32,6 +33,8 @@ class PenaltyAlgorithm:
                 return self.__verma_and_lewis_check(obj_qubos)
 
     @staticmethod
+    # Author: Dr Mayowa Ayodele
+    # Modified: Raufs Dunamalijevs
     def __verma_and_lewis(obj_qubos):
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
         k = 0

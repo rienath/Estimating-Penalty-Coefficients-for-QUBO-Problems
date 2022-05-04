@@ -1,6 +1,6 @@
 # Week 1 
-## Objective
-Learn the basics of Simulated Annealing.
+## Objectives
+* Learn the basics of Simulated Annealing.
 
 ## Tasks
 ### Completed
@@ -89,14 +89,14 @@ Get more familiar with the Digital Annealer.
 * Ask about the benefits of using the sigmoid function for Simulated Annealing
 * How do superconductors work with QA?
 * What is the architecture of DA?
-* Is there a difference between DA and QA in respect to this project? We use QUBO and penalty values are universal. As far as I understand, it is just a different technology to do the same thing and optimizing penalties benefits both in the same way.
-* Is there a difference between DA/QA and SA? Is the penalty optimization somehow unique to quantum tunneling approach.
+* Is there a difference between DA and QA in respect to this project? We use QUBO and penalty values are universal. As far as I understand, it is just a different technology to do the same thing and optimising penalties benefits both in the same way.
+* Is there a difference between DA/QA and SA? Is the penalty optimisation somehow unique to quantum tunnelling approach.
 * [[D-Wave Ocean Software Documentation]] - is there something similar to this for DA?
 
 ### During
 **Answers:**
 * Hardware of DA is not very important as it is outside of the project scope
-* Penalty optimization will most likely increase the effectiveness of both DA and QA, but we only have access to QA
+* Penalty optimisation will most likely increase the effectiveness of both DA and QA, but we only have access to DA.
 
 ### After
 * Read the EDA lecture
@@ -116,7 +116,7 @@ Get more familiar with the Digital Annealer.
 ## Tasks
 ### Completed
 * Go through [[Pre-Project Meeting Notes]] notes and write out everything I do not understand
-* Find papers that are related to QUBO penalty optimization
+* Find papers that are related to QUBO penalty optimisation
 * Read sections related to penalty values in [[A Tutorial on Formulating and Using QUBO Models]]
 * Read the _EDA's and Markov Networks_ lecture sent on Teams
 * Understand [[PyQUBO]]
@@ -148,7 +148,7 @@ Get more familiar with the Digital Annealer.
 	* Do we do that in a simulation using random walk?
 * Use PyQUBO, qbSolve, for transformation but amend penalty using estimation process
 	* Is there something similar to D-Wave Ocean for DA?
-* _"Create own solver {GA, DEUM,}"_
+* _"'Create own solver {GA, DEUM,}'"_
 	* Our solver will have the same QUBO format and will get the same input, but it will not have any penalties?
 	* qbsolve allows Tabu search as well. Maybe try that too?
 * Run experiments to compare solution time for {own solvers} vs {transformation + DA}
@@ -162,11 +162,11 @@ Get more familiar with the Digital Annealer.
 **Answers**:
 * Penalties cannot be changed during the annealing. They must be fixed.
 * We might have multiple penalties if there are more than one constraint function, but this is unlikely
-* For P value optimization implementation have a look at harmonic analysis and Walsh function
-* We can try to optimize for P not in form o QUBO
-* There is no API for Digital Annealer, but Dr. Ayodele can manually run it on Digital Annealer
+* For P value optimisation implementation have a look at harmonic analysis and Walsh function
+* We can try to optimise for P not in form o QUBO
+* There is no API for Digital Annealer, but Dr Ayodele can manually run it on Digital Annealer
 * It is very easy to code Digital Annealer algorithm or a normal computer as it has minor differences from Simulated Annealing in terms of implementation
-* We may test our solution against some default P value or try to optimize P with methods done by other people to compare the performance. It is not meaningful to compare Digital Annealer with Genetic Algorithm as one is in form of QUBO and the second is not
+* We may test our solution against some default P value or try to optimise P with methods done by other people to compare the performance. It is not meaningful to compare Digital Annealer with Genetic Algorithm as one is in form of QUBO and the second is not
 * Ethics form: 1c - yes, 2 - no, 3d - yes, 5c - yes, 10 - maybe (no)
 
 ### After
@@ -183,7 +183,7 @@ Get more familiar with the Digital Annealer.
 ## Objectives
 * Make a project log
 * Make a project proposal draft
-* Have a look at harmonic analysis and Walsh function to get ideas for penalty optimization
+* Have a look at harmonic analysis and Walsh function to get ideas for penalty optimisation
 
 ## Tasks
 ### To-do
@@ -196,7 +196,7 @@ Get more familiar with the Digital Annealer.
 * Make a full project log and fill it in
 * Skim through [[Towards Prediction of Financial Crashes with a D-Wave Quantum Computer]]
 * Look at harmonic analysis and Walsh function.
-* Understand the difference between Ising and QUBO models. [[Difference between BQM, Ising, and QUBO problems?]].
+* Understand the difference between Ising and QUBO models. [[Difference between BQM, Ising, and QUBO problems?]]
 * Read [[Penalty and partitioning techniques to improve performance of QUBO solvers]]
 * Research variable interaction components
 * Read [[QROSS; QUBO RELAXATION PARAMETER OPTIMISATION VIA LEARNING SOLVER SURROGATES]]
@@ -275,15 +275,13 @@ Get more familiar with the Digital Annealer.
 * Read [[Introduction to Walsh Analysis]]
 * Read [[Embedding Inequality Constraints for Quantum Annealing Optimization]]
 
-## Meeting (7/10/2021)
+## Meeting (14/10/2021)
 ### Before 
 * Make a git repository with all the files
 * Read [[Partial structure learning by subset Walsh transform]]
 
 ### During
 * One of the lit review grading aspects: analysis of context and consideration of alternatives. What does it mean?
-
-### After
 
 
 
@@ -313,8 +311,6 @@ Complexity.
 Ways to calculate penalty.
 Possible benchmarks.
 Numerical approach.
-
-### After
 
 
 
@@ -607,10 +603,10 @@ Fix the following:
 - ~~Read [[On the Use of Run Time Distributions to Evaluate and Compare Stochastic Local Search Algorithms]]
 - ~~Find a way to implement Run Length Distribution
 - Implement new Penalty algorithm
-~~- Read [[Incorporating a Metropolis method in a distribution estimation using Markov random field algorithm]]
+- ~~Read [[Incorporating a Metropolis method in a distribution estimation using Markov random field algorithm]]
 * ~~Read  [[Towards a Characterisation of the Behaviour of Stochastic Local Search Algorithms for SAT]]
 * ~~Implement RLD for greedy algorithm
-* ~~Implement RtD for tabu search
+* ~~Implement RTD for tabu search
 
 ## Meeting
 ### During
@@ -848,10 +844,66 @@ I am not sure I entirely understand the given methods. So in Verma and Lewis met
 * LaTeX
 
 ## Tasks
-* Move Requirements Engineering to LaTeX
-* Add a section explaining Multiple Knapsack Problem to the dissertation
-* Add a section explaining Travelling Salesman Problem to the dissertation
-* Add a section explaining Quadratic Assignment Problem to the dissertation
-* Code the discussed penalty estimation algorithm
-* Research Gaussian Elimination
-* Think about turning point penalty estimation algorithm
+* ~~Move Requirements Engineering to LaTeX
+* ~~Add a section explaining Multiple Knapsack Problem to the dissertation
+* ~~Add a section explaining Travelling Salesman Problem to the dissertation
+* ~~Add a section explaining Quadratic Assignment Problem to the dissertation
+* ~~Code the discussed penalty estimation algorithm
+* ~~Research Gaussian Elimination
+* ~~Think about turning point penalty estimation algorithm
+
+
+
+*****
+
+
+
+# Week 28
+## Objectives
+* Poster
+
+# Tasks
+* ~~Draft
+* ~~Visualisations
+* ~~Final
+
+
+*****
+
+
+
+# Week 29
+# Objectives
+* Finish code
+* Prepare for Degree Show
+
+## Tasks
+* ~~Penalty Coefficient Distribution
+* ~~Run Time and Run Length Distributions
+
+
+
+*****
+
+
+
+# Week 30 - Week 32
+## Objectives
+* Write the dissertation
+
+# Tasks
+* Write abstract
+* Comment the code and add docstring
+* Methodify Predicting Changes
+* Methodify Statistical Significance
+* ~~Get initial RLD/RTD
+* Get secondary RLD/RTD
+* ~~Add poster as Appendix
+* Do something with dataset (upload them to github using [git LFS](https://git-lfs.github.com/))
+* Delete RLD/RTD from experiment notebooks
+* Check if our algorithms actually do not improve feasibility
+* Comment out the Russian font packages
+* Make a table with dataset instances, where VL was better
+* ~~Make the repository public
+* Write readme
+* Visualisation module seciton
