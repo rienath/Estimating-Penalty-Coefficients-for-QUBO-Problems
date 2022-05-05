@@ -2,6 +2,7 @@ import math
 import tabu
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.interpolate import make_interp_spline
 from experiment import Experiment
@@ -108,3 +109,25 @@ class Figure:
             plt.plot(steps_new, smooth_percentage)
         plt.legend(PENALTY_ALGORITHMS)
         return dist
+
+    @staticmethod
+    def penalty_distribution(vl_p, expected_p, lazy_p, check_p):
+        # Names of the algorithms
+        vl = 'Verma&Lewis'
+        expected = 'Expected Constraint'
+        lazy = 'Minimum Lazy'
+        check = 'Verma&Lewis check'
+        # Get data into the right shape
+        comparison = {'Penalties' : vl_p + expected_p + lazy_p + check_p,
+                     'Algorithm' : [vl]*len(vl_p) + [expected]*len(expected_p) + [lazy]*len(lazy_p) + [check]*len(check_p)}
+        pd.DataFrame(comparison)
+        # Plot
+        plt.figure(figsize=(12, 4), dpi=200)
+        ax = sns.displot(comparison, x="Penalties", hue="Algorithm", kind="kde", cut=0, legend=False, aspect=1.5, palette="tab10") 
+        plt.setp(ax.ax.lines, alpha=.8)
+        plt.yscale('log')
+        plt.xscale('linear')
+        plt.legend(labels=['Reality Check', 'Minimum Lazy', 'Expected Constraint', 'Verma and Lewis'])
+        ax.fig.set_dpi(300)
+        for i in ax.axes.flatten():
+            i.ticklabel_format(axis="x", style="sci", scilimits=(0,0))
