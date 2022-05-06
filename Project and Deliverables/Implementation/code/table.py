@@ -84,9 +84,10 @@ class Table:
         return stats
 
     '''
-    Compares if the mean number of broken constraints is significantly different across all
+    Compares if number of broken constraints is significantly different across all
     instances of the same problem
     '''
+    @staticmethod
     def significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
         # Flatten the dataframes
         flat = lambda df: df.to_numpy().flatten()
@@ -103,6 +104,7 @@ class Table:
     A detailed version of the above significance test, where all the problem instances are compared
     independantly.
     '''
+    @staticmethod
     def detailed_significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
         column_names = ['Greedy Algorithm t-statistic', 'Greedy Algorithm p-value', 
                         'Simulated Annealing t-statistic', 'Simulated Annealing p-value',
@@ -130,6 +132,7 @@ class Table:
     It is impossible for VL to break more constraints as it has the largest M, but this number
     is included for testing purposes.
     '''
+    @staticmethod
     def find_best_significance(sig_data):
         vl_better = [0, 0, 0]
         no_sig_diff = [0, 0, 0] 
