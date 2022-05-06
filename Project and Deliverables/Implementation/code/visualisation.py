@@ -92,9 +92,9 @@ class Figure:
         # Set plot styles
         plt.style.use(['science', 'no-latex', 'ieee'])
         # Set limits
-        # x-axis limits are floor and ceiling to nearest 10 of max and min values
-        lowest_steps = math.floor(dist[dist.columns[1]][0] / 10) * 10
-        highest_steps = math.ceil(dist[dist.columns[1]][len(dist)-1] / 10) * 10
+        # x-axis limits are floor and ceiling to nearest 5 of max and min values
+        lowest_steps = math.floor(dist[dist.columns[1]][0] / 5) * 5
+        highest_steps = math.ceil(dist[dist.columns[1]][len(dist)-1] / 5) * 5
         offset = 0.2  # Offset is needed to see the line at graph borders
         plt.axis((lowest_steps, highest_steps, 0 - offset, 100 + offset))
         # Set labels and dpi
