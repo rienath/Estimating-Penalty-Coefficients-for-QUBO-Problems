@@ -4,10 +4,30 @@ from IPython.display import clear_output
 
 
 class Experiment:
+    """
+    
+    """
 
-    # Author: Mayowa Ayodele
     @staticmethod
     def __convert_1d_qubo_to_2d(qubo, n):
+        """
+
+        Parameters
+        ----------
+        qubo : type
+            Explanation
+        n : type
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+
+        :Author:
+            Dr Mayowa Ayodele
+        
+        """
         if len(qubo) != n * ((n + 1) * 0.5) + 1:
             print('check that n is the correct size')
             return None, None
@@ -32,9 +52,24 @@ class Experiment:
 
         return qubo_coefs, constant
 
-    # Author: Mayowa Ayodele
     @staticmethod
     def __convert_qubo_to_dwave_format(q):
+        """
+
+        Parameters
+        ----------
+        q : type
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+
+        :Author:
+            Dr Mayowa Ayodele
+        
+        """
         new_q = {}
         for i in range(len(q)):
             new_q[tuple([i, i])] = q[i][i]
@@ -49,6 +84,27 @@ class Experiment:
     # formulated.
     @classmethod
     def data_prep_light(cls, obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Explanation
+        con_qubos : type
+            Explanation
+        penalty_alorithm_name : type
+            Explanation
+        minimisation : type
+            Explanation
+        **kwargs, optional
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+            
+        """
         # Calculate penalties
         penalty_algorithm = PenaltyAlgorithm(penalty_algorithm_name)
         if con_qubos:
@@ -69,6 +125,29 @@ class Experiment:
 
     @classmethod
     def data_prep(cls, qubo_sizes, objectives, constraints, penalty_algorithm_name, minimisation, **kwargs):
+        """
+
+        Parameters
+        ----------
+        qubo_sizes : type
+            Explanation
+        objectives : type
+            Explanation
+        constraints : type
+            Explanation
+        penalty_algorithm_name : type
+            Explanation
+        minimisation : type
+            Explanation
+        **kwargs, optional
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+                
+        """
         # Get the unconstrained objective function and the constraint function with constants
         obj_qubos, obj_constants, con_qubos, con_constants = [], [], [], []
         for i in range(len(qubo_sizes)):
@@ -87,6 +166,33 @@ class Experiment:
 
     @staticmethod
     def run_sampler(qs, obj_qubos, obj_constants, con_qubos, con_constants, sampler, repeats, **kwargs):
+        """
+
+        Parameters
+        ----------
+        qs : type
+            Explanation
+        obj_qubos : type
+            Explanation
+        obj_constants : type
+            Explanation
+        con_qubos : type
+            Explanation
+        con_constants : type
+            Explanation
+        sampler : type
+            Explanation
+        repeats : type
+            Explanation
+        **kwargs, optional
+            Explanation
+        
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
         # Format {seed : [objective_energies, constraint_energies]}
         runs = {}
         # Solve every QUBO n times with a different seed to simulate different runs.

@@ -2,6 +2,22 @@ import numpy as np
 
 
 class PenaltyAlgorithm:
+    """
+
+    Also explain __new__.
+    
+    Attributes
+    ----------
+    algorithm : type
+        Example
+
+    Raises
+    ------
+    ValueError
+        Example
+    
+    """
+    
     ALGORITHMS = ['Verma&Lewis', 'Monotone', 'Expected Constraint', 'Minimum Lazy', 'Verma&Lewis check']
 
     def __new__(cls, algorithm):
@@ -15,6 +31,28 @@ class PenaltyAlgorithm:
         self.algorithm = algorithm
 
     def generate_penalties(self, obj_qubos, con_qubos=None, monotone_value=None):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Example
+        con_qubos : type, optional
+            Example
+        monotone_value : type, optional
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+
+        Raises
+        ------
+        TypeError
+            Explanation
+        
+        """
         # Match input penalty algorithm name to the actual algorithm
         match self.algorithm:
             case 'Verma&Lewis':
@@ -33,9 +71,24 @@ class PenaltyAlgorithm:
                 return self.__verma_and_lewis_check(obj_qubos)
 
     @staticmethod
-    # Author: Dr Mayowa Ayodele
-    # Modified: Raufs Dunamalijevs
     def __verma_and_lewis(obj_qubos):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+
+        :Authors:
+            Dr Mayowa Ayodele
+            Raufs Dunamalijevs
+        
+        """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
         k = 0
         for i in range(len(obj_qubos)):
@@ -53,6 +106,19 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __verma_and_lewis_check(obj_qubos):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
         k = 0
         for i in range(len(obj_qubos)):
@@ -70,10 +136,38 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __monotone(monotone_value):
+        """
+
+        Parameters
+        ----------
+        monotone_value : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
         return monotone_value
 
     @staticmethod
     def __expected_constraint(obj_qubos, con_qubos):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Example
+        con_qubos : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
         k = 0
         for i in range(len(obj_qubos)):
@@ -111,6 +205,21 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __minimum_lazy(obj_qubos, con_qubos):
+        """
+
+        Parameters
+        ----------
+        obj_qubos : type
+            Example
+        con_qubos : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
         k = 0
         for i in range(len(obj_qubos)):

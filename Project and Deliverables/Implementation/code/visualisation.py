@@ -10,6 +10,9 @@ from table import Table
 
 
 class Figure:
+    """
+
+    """
 
     global PENALTY_ALGORITHMS
     
@@ -18,6 +21,24 @@ class Figure:
     # Smooths the line of a figure given the data, minimum and maximum x
     @staticmethod
     def __smooth_the_line(data, min_x, max_x):
+        """
+
+        Parameters
+        ----------
+        data : type
+            Explanation
+        min_x : type
+            Explanation
+        max_x : type
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+
         # Create more points for x-axis
         steps_new = np.linspace(min_x, max_x, 500)
         # Smooth
@@ -30,6 +51,32 @@ class Figure:
 
     "If you want to repeat a  run multiple times and get the average feasibility for that number of steps/ms, use repeats. Otherwise, the distribution will be unstable"
     def __get_distribution_data(data, minimisation, solver, max_bound, steps, num_reads=1, repeats=1):
+        """
+
+        Parameters
+        ----------
+        data : type
+            Explanation
+        minimisation : type
+            Explanation
+        solver : type
+            Explanation
+        max_bound : type
+            Explanation
+        steps : type
+            Explanation
+        num_reads : type, default=1
+            Explanation
+        repeats : type, default=1
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+
+        """
+        
         # We need to work with time if the solver is Tabu
         # Otherwise, we need steps
         tabu_bool = (type(solver) == tabu.sampler.TabuSampler)
@@ -87,6 +134,32 @@ class Figure:
 
     @classmethod
     def run_distribution(cls, data, minimisation, solver, max_bound, steps, num_reads=1, repeats=1):
+        """
+
+        Parameters
+        ----------
+        data : type
+            Explanation
+        minimisation : type
+            Explanation
+        solver : type
+            Explanation
+        max_bound : type
+            Explanation
+        steps : type
+            Explanation
+        num_reads : type, default=1
+            Explanation
+        repeats : type, default=1
+            Explanation
+
+        Returns
+        -------
+        type
+            Explanation
+
+        """
+        
         # Get the distribution
         dist = cls.__get_distribution_data(data, minimisation, solver, max_bound, steps, num_reads, repeats)
         # Set plot styles
@@ -112,6 +185,21 @@ class Figure:
 
     @staticmethod
     def penalty_distribution(vl_p, expected_p, lazy_p, check_p):
+        """
+
+        Parameters
+        ----------
+        vl_p : type
+            Explanation
+        expected_p : type
+            Explanation
+        lazy_p : type
+            Explanation
+        check_p : type
+            Explanation
+
+        """
+        
         # Names of the algorithms
         vl = 'Verma&Lewis'
         expected = 'Expected Constraint'

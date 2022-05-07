@@ -6,8 +6,23 @@ import pandas as pd
 from scipy import stats
 
 class Table:
+    """
+
+    """
+    
     @staticmethod
     def display_side_by_side(*args, titles=cycle([''])):
+        """
+
+        Parameters
+        ----------
+        *args : type
+            Example
+        titles : type
+            Example
+        
+        """
+        
         html_str = ''
         for df, title in zip(args, chain(titles, cycle(['</br>']))):
             html_str += '<th style="text-align:center"><td style="vertical-align:top">'
@@ -18,6 +33,28 @@ class Table:
 
     @staticmethod
     def record_results(runs, qubo_sizes, penalties, repeats, minimization=False):
+        """
+
+        Parameters
+        ----------
+        runs : type
+            Example
+        qubo_sizes : type
+            Example
+        penalties : type
+            Example
+        repeats : type
+            Example
+        minimization : type, optional
+            Example
+            
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         coef = 1 if minimization else -1
         results = []
         # 1: QUBO size, 2: calculated penalty coefficient, 3: objective function energy
@@ -37,6 +74,22 @@ class Table:
     # Show  energies, broken constraints or objective function values of all tries in all problems in a single df
     @staticmethod
     def columns_to_table(results, column_name):
+        """
+
+        Parameters
+        ----------
+        results : type
+            Example
+        column_name : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         energies = pd.DataFrame()
         repeats = len(results)  # Number of repeats is equivalent to the number of results
         for i in range(repeats):
@@ -46,6 +99,20 @@ class Table:
     # Make a table that will display which solution were feasible
     @staticmethod
     def feasibility_table(results):
+        """
+
+        Parameters
+        ----------
+        results : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         feasibility = pd.DataFrame()
         repeats = len(results)  # Number of repeats is equivalent to the number of results
         # Solution is feasibly if no constraints were broken
@@ -56,6 +123,20 @@ class Table:
     # Returns a table with different feasibility statistics
     @classmethod
     def feasibility_statistic(cls, results):
+        """
+
+        Parameters
+        ----------
+        results : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         # Make tables with energies and feasible results
         feasibility = cls.feasibility_table(results)
         energies = cls.columns_to_table(results, 'Energy (minimisation)')
@@ -89,6 +170,30 @@ class Table:
     '''
     @staticmethod
     def significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
+        """
+
+        Parameters
+        ----------
+        first_greedy : type
+            Example
+        first_sa : type
+            Example
+        first_tabu : type
+            Example
+        second_greedy : type
+            Example
+        second_sa : type
+            Example
+        second_tabu : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+
         # Flatten the dataframes
         flat = lambda df: df.to_numpy().flatten()
         a1, a2, a3 = flat(first_greedy), flat(first_sa), flat(first_tabu)
@@ -106,6 +211,30 @@ class Table:
     '''
     @staticmethod
     def detailed_significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
+        """
+
+        Parameters
+        ----------
+        first_greedy : type
+            Example
+        first_sa : type
+            Example
+        first_tabu : type
+            Example
+        second_greedy : type
+            Example
+        second_sa : type
+            Example
+        second_tabu : type
+            Example
+
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         column_names = ['Greedy Algorithm t-statistic', 'Greedy Algorithm p-value', 
                         'Simulated Annealing t-statistic', 'Simulated Annealing p-value',
                         'Tabu Search t-statistic', 'Tabu Search p-value']
@@ -134,6 +263,20 @@ class Table:
     '''
     @staticmethod
     def find_best_significance(sig_data):
+        """
+
+        Parameters
+        ----------
+        sig_data : type
+            Example
+            
+        Returns
+        -------
+        type
+            Explanation
+        
+        """
+        
         vl_better = [0, 0, 0]
         no_sig_diff = [0, 0, 0] 
         vl_worse =  [0, 0, 0]
