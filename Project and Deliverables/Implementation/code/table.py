@@ -1,25 +1,23 @@
 from IPython.display import display_html
 from itertools import chain, cycle
 import pandas as pd
-
-
 from scipy import stats
 
 class Table:
-    """
+    """A collection of methods related to producing tables.
 
     """
     
     @staticmethod
     def display_side_by_side(*args, titles=cycle([''])):
-        """
+        """Display multiple tables next to one another.
 
         Parameters
         ----------
-        *args : type
-            Example
-        titles : type
-            Example
+        *args : pandas.core.frame.DataFrame
+            DataFrames to be displaye.
+        titles : list
+            DataFrame titles.
         
         """
         
@@ -33,25 +31,27 @@ class Table:
 
     @staticmethod
     def record_results(runs, qubo_sizes, penalties, repeats, minimization=False):
-        """
+        """Records the results of an experiment straight out the solver in a series of tables.
 
         Parameters
         ----------
-        runs : type
-            Example
-        qubo_sizes : type
-            Example
-        penalties : type
-            Example
-        repeats : type
-            Example
-        minimization : type, optional
-            Example
+        runs : dict
+            The objective and constraint function values of every solution from every repeat 
+            in the following format: {repeat: [objective values], [constraint values]}. 
+            Experiment.run_sampler(...).
+        qubo_sizes : list
+            Sizes of the solved QUBOs.
+        penalties : list
+            Penalty coefficients estimated for QUBOs. 
+        repeats : int
+            Number of times we have solved the same problems.
+        minimization : bool, optional
+            Whether the problem is a minimisation.
             
         Returns
         -------
-        type
-            Explanation
+        list
+            A list of DataFrames each containing information about produced solutions in an individual repeat.
         
         """
         
@@ -71,22 +71,22 @@ class Table:
                                          'Energy (minimisation)': energies}))
         return results
 
-    # Show  energies, broken constraints or objective function values of all tries in all problems in a single df
     @staticmethod
     def columns_to_table(results, column_name):
-        """
+        """Show energies, broken constraints or objective function values of all tries in all problems 
+        on a single table.
 
         Parameters
         ----------
-        results : type
-            Example
-        column_name : type
-            Example
+        results : list
+            The output of the record_results(...).
+        column_name : str
+            The name of the column that we want to isolate.
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            DataFrame with certain characteristic (like energies) of all repeats of all problem solution.
         
         """
         
@@ -96,20 +96,19 @@ class Table:
             energies[f'{column_name} {i}'] = results[i][column_name]
         return energies
 
-    # Make a table that will display which solution were feasible
     @staticmethod
     def feasibility_table(results):
-        """
+        """Calculates and displays whether the solutions are feasible or not.
 
         Parameters
         ----------
-        results : type
-            Example
+        results : list
+            The output of the record_results(...).
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            A DataFrame with booleans that state whether the solution was feasible or not.
         
         """
         
@@ -120,20 +119,22 @@ class Table:
             feasibility[f'Feasible {i}'] = results[i]['Broken Constraints'] == 0
         return feasibility
 
-    # Returns a table with different feasibility statistics
     @classmethod
     def feasibility_statistic(cls, results):
-        """
+        """Calculates and displays how many instances of each problem were feasible throughout all runs, the
+        feasibility rate (feasible/all), and the mean and Standard Deviation of the energy of
+        the solutions. It also shows the total, mean and Standard Deviation of all the listed
+        parameters at the bottom of the table.
 
         Parameters
         ----------
-        results : type
-            Example
+        results : list
+            The output of the record_results(...).
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            A DataFrame with feasibility statistics.
         
         """
         
@@ -164,33 +165,37 @@ class Table:
 
         return stats
 
-    '''
-    Compares if number of broken constraints is significantly different across all
-    instances of the same problem
-    '''
     @staticmethod
     def significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
-        """
+        """Uses a students t-test to check if the difference in the number of broken constraints of 
+        solutions obtained with penalty coefficients of two different algorithms is statistically
+        significant for all problems.
 
         Parameters
         ----------
-        first_greedy : type
-            Example
-        first_sa : type
-            Example
-        first_tabu : type
-            Example
-        second_greedy : type
-            Example
-        second_sa : type
-            Example
-        second_tabu : type
-            Example
+        first_greedy : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with greedy solver.
+        first_sa : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with simulated annealing solver.
+        first_tabu : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with tabu search solver.
+        second_greedy : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with greedy solver.
+        second_sa : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with simulated annealing solver.
+        second_tabu : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with tabu search solver.
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            Results of the students t-test.
         
         """
 
@@ -205,33 +210,37 @@ class Table:
         significance['Tabu Search'] = stats.ttest_ind(a3, b3)
         return significance
 
-    '''
-    A detailed version of the above significance test, where all the problem instances are compared
-    independantly.
-    '''
     @staticmethod
     def detailed_significance_test(first_greedy, first_sa, first_tabu, second_greedy, second_sa, second_tabu):
-        """
+        """Uses a students t-test to check if the difference in the number of broken constraints of 
+        solutions obtained with penalty coefficients of two different algorithms is statistically
+        significant for every problem.
 
         Parameters
         ----------
-        first_greedy : type
-            Example
-        first_sa : type
-            Example
-        first_tabu : type
-            Example
-        second_greedy : type
-            Example
-        second_sa : type
-            Example
-        second_tabu : type
-            Example
+        first_greedy : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with greedy solver.
+        first_sa : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with simulated annealing solver.
+        first_tabu : pandas.core.frame.DataFrame
+            The first DataFrame to test with the number of constraints broken in each problem on each repeat
+            with tabu search solver.
+        second_greedy : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with greedy solver.
+        second_sa : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with simulated annealing solver.
+        second_tabu : pandas.core.frame.DataFrame
+            The second DataFrame to test with the number of constraints broken in each problem on each repeat
+            with tabu search solver.
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            Results of the students t-test.
         
         """
         
@@ -254,26 +263,25 @@ class Table:
             detailed_significance.loc[f'{i}'] = new
         return detailed_significance
 
-    '''
-    Acccepts detailed_significance_test method output.
-    Returns the number of problems, where VL breaks significantly less constraints (0),
-    there is no significant difference (1), where VL breaks significantly more constraints (2).
-    It is impossible for VL to break more constraints as it has the largest M, but this number
-    is included for testing purposes.
-    '''
     @staticmethod
     def find_best_significance(sig_data):
-        """
+        """Counts the number of problems where Verma and Lewis coefficients resulted in
+        significantly less broken constraints, significantly more broken constraints and the
+        number of problems where there was no significant difference compared to solutions
+        that used coefficients generated by our algorithm.
 
         Parameters
         ----------
         sig_data : type
-            Example
+            Results of the students t-test produced by detailed_significance_test(...).
             
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            The number of problems Verma and Lewis coefficients resulted in significantly less 
+            broken constraints, significantly more broken constraints and the
+            number of problems where there was no significant difference compared to solutions
+            that used coefficients generated by the other algorithm.
         
         """
         
