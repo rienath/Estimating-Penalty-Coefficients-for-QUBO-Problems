@@ -4,26 +4,28 @@ from IPython.display import clear_output
 
 
 class Experiment:
-    """
-    
+    """ A collection of methods related to running experiments and preparing data for them.
+
     """
 
     @staticmethod
     def __convert_1d_qubo_to_2d(qubo, n):
-        """
+        """ Transforms a 1D QUBO into a conventional 2D QUBO, which the rest
+        of the program can then work with. MKP dataset is in 1D format.
 
         Parameters
         ----------
-        qubo : type
-            Explanation
-        n : type
-            Explanation
+        qubo : numpy.ndarray
+            The QUBO.
+        n : numpy.ndarray
+            Size of the QUBO in the following form: array(85, dtype=int32).
 
         Returns
         -------
-        type
-            Explanation
-
+        tuple : a tuple containing:
+            - numpy.ndarray:    The 2D QUBO.
+            - numpy.int64:      The associated constant.
+            
         :Author:
             Dr Mayowa Ayodele
         
@@ -54,17 +56,17 @@ class Experiment:
 
     @staticmethod
     def __convert_qubo_to_dwave_format(q):
-        """
+        """ Translates the 2D QUBO into a format that the D-Wave solvers require.
 
         Parameters
         ----------
-        q : type
-            Explanation
+        q : numpy.ndarray
+            The QUBO.
 
         Returns
         -------
-        type
-            Explanation
+        dict
+            The QUBO in the format that D-Wave solvers work with.
 
         :Author:
             Dr Mayowa Ayodele
@@ -80,29 +82,33 @@ class Experiment:
         return new_q
 
     # Kwargs are for the penalty algorithms
-    # Light version of data prep. Can be applied when objective and constraint function QUBOs have already been
-    # formulated.
     @classmethod
     def data_prep_light(cls, obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs):
-        """
+        """The basic data preparation.
+        This method is used for QAP and TSP data preparation. 
+        It is also used for MKP inside data preparation method, but only after
+        the QUBOs are transformed into a 2D form. This method is used for QAP and TSP data
+        preparation. It is also used for MKP inside data preparation method, but only after
+        the QUBOs are transformed into a 2D form.
 
         Parameters
         ----------
-        obj_qubos : type
-            Explanation
-        con_qubos : type
-            Explanation
-        penalty_alorithm_name : type
-            Explanation
-        minimisation : type
-            Explanation
+        obj_qubos : list
+            The objective function QUBOs.
+        con_qubos : list
+            The constraint function QUBOs.
+        penalty_algorithm_name : str
+            The name of the penalty algorithm to be used.
+        minimisation : bool
+            Whether the problem solved is a minimisation problem.
         **kwargs, optional
-            Explanation
+            Additional arguments passed to PenaltyAlgorithm (like the monotone value).
 
         Returns
         -------
-        type
-            Explanation
+        tuple : a tuple containing:
+            - list: The full QUBOs.
+            - list: Penalty coefficients estimated for QUBOs. 
             
         """
         # Calculate penalties
@@ -125,27 +131,34 @@ class Experiment:
 
     @classmethod
     def data_prep(cls, qubo_sizes, objectives, constraints, penalty_algorithm_name, minimisation, **kwargs):
-        """
+        """The data preparation.
+        First converts QUBOs into a 2D layout and then applies the standard data_prep_light.
+        Used with MKP dataset.
 
         Parameters
         ----------
-        qubo_sizes : type
-            Explanation
-        objectives : type
-            Explanation
-        constraints : type
-            Explanation
-        penalty_algorithm_name : type
-            Explanation
-        minimisation : type
-            Explanation
+        qubo_sizes : list
+            Sizes of the provided QUBOs.
+        objectives : list
+            The objective function QUBOs.
+        constraints : list
+            The constraint function QUBOs.
+        penalty_algorithm_name : str
+            The name of the penalty algorithm to be used.
+        minimisation : bool
+            Whether the problem solved is a minimisation problem.
         **kwargs, optional
-            Explanation
+            Additional arguments passed to PenaltyAlgorithm (like the monotone value).
 
         Returns
         -------
-        type
-            Explanation
+        tuple : a tuple containing:
+            - list: The full QUBOs.
+            - list: The estimated penalty coefficients.
+            - list: The objective function QUBOs.
+            - list: The objective function constants.
+            - list: The constraint function QUBOs.
+            - list: The constaraint function constants.
                 
         """
         # Get the unconstrained objective function and the constraint function with constants
@@ -166,31 +179,32 @@ class Experiment:
 
     @staticmethod
     def run_sampler(qs, obj_qubos, obj_constants, con_qubos, con_constants, sampler, repeats, **kwargs):
-        """
+        """Runs the D-Wave solver.
 
         Parameters
         ----------
-        qs : type
-            Explanation
-        obj_qubos : type
-            Explanation
-        obj_constants : type
-            Explanation
-        con_qubos : type
-            Explanation
-        con_constants : type
-            Explanation
-        sampler : type
-            Explanation
-        repeats : type
-            Explanation
+        qs : list
+            The QUBOs to be solved.
+        obj_qubos : list
+            The objective function QUBOs.
+        obj_constants : list
+            The objective function constants.
+        con_qubos : list
+            The constraint function QUBOs.
+        con_constants : list
+            The constraint function constants.
+        sampler : object
+            The D-Wave sampler to be used for solving QUBOs.
+        repeats : int
+            Number of times we want to get a solution for the same problem.
         **kwargs, optional
-            Explanation
+            Hyperparameters that will be provided to the sampler on run. For example, num_reads.
         
         Returns
         -------
-        type
-            Explanation
+        dict
+            The objective and constraint function values of every solution from every repeat 
+            in the following format: {repeat: [objective values], [constraint values]}.
         
         """
         # Format {seed : [objective_energies, constraint_energies]}
