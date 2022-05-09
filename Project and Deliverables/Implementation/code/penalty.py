@@ -2,19 +2,17 @@ import numpy as np
 
 
 class PenaltyAlgorithm:
-    """
-
-    Also explain __new__.
+    """Models a penalty estimation algorithm.
     
     Attributes
     ----------
-    algorithm : type
-        Example
+    algorithm : str
+        Name of the panalty algorithm to be used.
 
     Raises
     ------
     ValueError
-        Example
+        If the entered algorithm does not exist.
     
     """
     
@@ -31,26 +29,27 @@ class PenaltyAlgorithm:
         self.algorithm = algorithm
 
     def generate_penalties(self, obj_qubos, con_qubos=None, monotone_value=None):
-        """
+        """Generates penalty coefficients for the provided objective 
+        and optionally constraint QUBOs.
 
         Parameters
         ----------
-        obj_qubos : type
-            Example
-        con_qubos : type, optional
-            Example
-        monotone_value : type, optional
-            Example
+        obj_qubos : list
+            The objective function QUBOs that we want to generate M for.
+        con_qubos : list, optional
+            The constraint function QUBOs that we want to generate M for.
+        monotone_value : int, optional
+            A constant that Monotone algorithms will always return.
 
         Returns
         -------
-        type
-            Explanation
+        list
+            The numpy.float64 penalty coefficients estimated for the provided QUBOs.
 
         Raises
         ------
         TypeError
-            Explanation
+            If monotone_value was not provided when using Monotone algorithms.
         
         """
         # Match input penalty algorithm name to the actual algorithm
@@ -72,17 +71,17 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __verma_and_lewis(obj_qubos):
-        """
+        """Generate M using the Verma and Lewis algorithm.
 
         Parameters
         ----------
-        obj_qubos : type
-            Example
+        obj_qubos : numpy.ndarray
+            The objective function QUBO.
 
         Returns
         -------
-        type
-            Explanation
+        numpy.float64
+            The penalty coefficient estimate for the provided objective QUBO.
 
         :Authors:
             Dr Mayowa Ayodele
@@ -106,17 +105,17 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __verma_and_lewis_check(obj_qubos):
-        """
+        """Generate M using the Reality Check algorithm.
 
         Parameters
         ----------
-        obj_qubos : type
-            Example
+        obj_qubos : numpy.ndarray
+            The objective function QUBO.
 
         Returns
         -------
-        type
-            Explanation
+        numpy.float64
+            The penalty coefficient estimate for the provided objective QUBO.
         
         """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
@@ -136,36 +135,36 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __monotone(monotone_value):
-        """
+        """Generate M using the Monotone algorithm.
 
         Parameters
         ----------
-        monotone_value : type
-            Example
+        monotone_value : int or float
+            The value that we always want to return as an M.
 
         Returns
         -------
-        type
-            Explanation
+        numpy.float64
+            The penalty coefficient equal to the monotone value provided.
         
         """
         return monotone_value
 
     @staticmethod
     def __expected_constraint(obj_qubos, con_qubos):
-        """
+        """Generate M using the Expected Constraint algorithm.
 
         Parameters
         ----------
-        obj_qubos : type
-            Example
-        con_qubos : type
-            Example
+        obj_qubos : numpy.ndarray
+            The objective function QUBO.
+        con_qubos : numpy.ndarray
+            The constraint function QUBO.
 
         Returns
         -------
-        type
-            Explanation
+        numpy.float64
+            The penalty coefficient estimate for the provided objective and constraint QUBOs.
         
         """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
@@ -205,19 +204,19 @@ class PenaltyAlgorithm:
 
     @staticmethod
     def __minimum_lazy(obj_qubos, con_qubos):
-        """
+        """Generate M using the Minimum Lazy algorithm.
 
         Parameters
         ----------
-        obj_qubos : type
-            Example
-        con_qubos : type
-            Example
+        obj_qubos : numpy.ndarray
+            The objective function QUBO.
+        con_qubos : numpy.ndarray
+            The constraint function QUBO.
 
         Returns
         -------
-        type
-            Explanation
+        numpy.float64
+            The penalty coefficient estimate for the provided objective and constraint QUBOs.
         
         """
         weights = np.zeros(shape=(len(obj_qubos) * 2), dtype='int64')
