@@ -8,37 +8,36 @@ from scipy.interpolate import make_interp_spline
 from experiment import Experiment
 from table import Table
 
-
 class Figure:
-    """
+    """A collection of methods related to making plots.
 
     """
 
     global PENALTY_ALGORITHMS
-    
+
     PENALTY_ALGORITHMS = ['Verma&Lewis', 'Expected Constraint', 'Minimum Lazy', 'Verma&Lewis check']
     
-    # Smooths the line of a figure given the data, minimum and maximum x
     @staticmethod
     def __smooth_the_line(data, min_x, max_x):
-        """
+        """Smooth the given line using spline.
 
         Parameters
         ----------
-        data : type
-            Explanation
-        min_x : type
-            Explanation
-        max_x : type
-            Explanation
+        data : pandas.core.frame.DataFrame
+            The data to interpolate.
+        min_x : int
+            The minimum x value on the curve.
+        max_x : int
+            The maximum x value on the curve.
 
         Returns
         -------
-        type
-            Explanation
+        tuple : a tuple containing:
+            - numpy.ndarray:    New x values.
+            - list:             New y values.
         
         """
-
+        
         # Create more points for x-axis
         steps_new = np.linspace(min_x, max_x, 500)
         # Smooth
@@ -47,33 +46,34 @@ class Figure:
         # Limit smoothed values to 0-100 too
         smooth_percentage = [0 if i < 0 else i for i in smooth_percentage]
         smooth_percentage = [100 if i > 100 else i for i in smooth_percentage]
+
         return steps_new, smooth_percentage
 
-    "If you want to repeat a  run multiple times and get the average feasibility for that number of steps/ms, use repeats. Otherwise, the distribution will be unstable"
     def __get_distribution_data(data, minimisation, solver, max_bound, steps, num_reads=1, repeats=1):
-        """
+        """Produce Run-Length Distribution or Run-Time Distribution.
 
         Parameters
         ----------
-        data : type
-            Explanation
-        minimisation : type
-            Explanation
-        solver : type
-            Explanation
-        max_bound : type
-            Explanation
-        steps : type
-            Explanation
-        num_reads : type, default=1
-            Explanation
-        repeats : type, default=1
-            Explanation
+        data : list
+            The QUBOs we want to plot RLD/RTD for.
+        minimisation : bool
+            Whether the problem is a minimisation.
+        solver : object
+            The solver that will be used to produce the distribution.
+        max_bound : int
+            The maximum time/steps.
+        steps : int
+            How large we want a step to be from zero until the max_bound.
+            We will only test success rate of these steps/times.
+        num_reads : int, default=1
+            Solver hyperparameter. How many reads per solution.
+        repeats : int, default=1
+            Repeat a run multiple times and get the average feasibility for that number of steps/ms.
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            The distribution.
 
         """
         
@@ -134,29 +134,30 @@ class Figure:
 
     @classmethod
     def run_distribution(cls, data, minimisation, solver, max_bound, steps, num_reads=1, repeats=1):
-        """
+        """Produce and plot Run-Length Distribution or Run-Time Distribution.
 
         Parameters
         ----------
-        data : type
-            Explanation
-        minimisation : type
-            Explanation
-        solver : type
-            Explanation
-        max_bound : type
-            Explanation
-        steps : type
-            Explanation
-        num_reads : type, default=1
-            Explanation
-        repeats : type, default=1
-            Explanation
+        data : list
+            The QUBOs we want to plot RLD/RTD for.
+        minimisation : bool
+            Whether the problem is a minimisation.
+        solver : object
+            The solver that will be used to produce the distribution.
+        max_bound : int
+            The maximum time/steps.
+        steps : int
+            How large we want a step to be from zero until the max_bound.
+            We will only test success rate of these steps/times.
+        num_reads : int, default=1
+            Solver hyperparameter. How many reads per solution.
+        repeats : int, default=1
+            Repeat a run multiple times and get the average feasibility for that number of steps/ms.
 
         Returns
         -------
-        type
-            Explanation
+        pandas.core.frame.DataFrame
+            The distribution.
 
         """
         
@@ -185,18 +186,18 @@ class Figure:
 
     @staticmethod
     def penalty_distribution(vl_p, expected_p, lazy_p, check_p):
-        """
+        """Plot distributions of penalty coefficients obtained using different M estimation algorithms.
 
         Parameters
         ----------
-        vl_p : type
-            Explanation
-        expected_p : type
-            Explanation
-        lazy_p : type
-            Explanation
-        check_p : type
-            Explanation
+        vl_p : list
+            The predicted Verma and Lewis penalty coefficients.
+        expected_p : list
+            The predicted Expected Constraint penalty coefficients.
+        lazy_p : list
+            The predicted Minimum Lazy penalty coefficients.
+        check_p : list
+            The predicted Reality Check penalty coefficients.
 
         """
         

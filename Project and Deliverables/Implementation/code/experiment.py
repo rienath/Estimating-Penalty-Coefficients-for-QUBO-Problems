@@ -2,7 +2,6 @@ import numpy as np
 from penalty import PenaltyAlgorithm
 from IPython.display import clear_output
 
-
 class Experiment:
     """ A collection of methods related to running experiments and preparing data for them.
 
@@ -81,7 +80,6 @@ class Experiment:
                 new_q[tuple([i, j])] = q[i][j]
         return new_q
 
-    # Kwargs are for the penalty algorithms
     @classmethod
     def data_prep_light(cls, obj_qubos, con_qubos, penalty_algorithm_name, minimisation, **kwargs):
         """The basic data preparation.
@@ -126,8 +124,6 @@ class Experiment:
         # Change QUBO matrix to the dwave format
         qs = [cls.__convert_qubo_to_dwave_format(q) for q in qs]
         return qs, penalties
-
-    # Kwargs are for the penalty algorithms
 
     @classmethod
     def data_prep(cls, qubo_sizes, objectives, constraints, penalty_algorithm_name, minimisation, **kwargs):
