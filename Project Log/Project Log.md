@@ -892,18 +892,17 @@ I am not sure I entirely understand the given methods. So in Verma and Lewis met
 * Write the dissertation
 
 # Tasks
-* Write abstract
-* Comment the code and add docstring
-* Methodify Predicting Changes
-* Methodify Statistical Significance
+* ~~Write abstract
+* ~~Comment the code and add docstring
+* ~~Methodify Predicting Changes
+* ~~Methodify Statistical Significance
 * ~~Get initial RLD/RTD
-* Get secondary RLD/RTD
+* ~~Get secondary RLD/RTD
 * ~~Add poster as Appendix
-* Do something with dataset (upload them to github using [git LFS](https://git-lfs.github.com/))
-* Delete RLD/RTD from experiment notebooks
-* Check if our algorithms actually do not improve feasibility
-* Comment out the Russian font packages
-* Make a table with dataset instances, where VL was better
+* ~~Do something with dataset (upload them to github using [git LFS](https://git-lfs.github.com/))
+* ~~Delete RLD/RTD from experiment notebooks
+* ~~Check if our algorithms actually do not improve feasibility
+* ~~Comment out the Russian font packages
 * ~~Make the repository public
-* Write readme
-* Visualisation module seciton
+* ~~Write readme
+* ~~Visualisation module section
