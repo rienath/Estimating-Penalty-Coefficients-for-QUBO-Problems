@@ -21,7 +21,7 @@ conda activate env
 ├── Dissertation LaTeX.zip                      # LaTeX files
 ├── Dissertation.pdf                            # Dissertation
 ├── Files                                       # Different screenshots
-├── Materials                                   # The materials used
+├── Materials                                   # Materials used
 ├── Notes                                       # My notes
 ├── Project Log                                 # Project log (cleaner in dissertation)
 └── Project and Deliverables                    # The project and university deliverables
@@ -34,9 +34,9 @@ conda activate env
     │   ├── Notebooks                           # Jupyter Notebooks
     │   ├── code                                # Python package
     │   └── environment.yml                     # Anaconda environment
-    ├── Literature Review                       # The literature review (included in dissertation)
-    ├── Poster                                  # The poster (included in dissertation)
-    ├── Project Proposal                        # The project proposal (included in dissertation)
-    ├── Requirements Engineering                # The requirements engineering (included in dissertation)
+    ├── Literature Review                       # Literature review (included in dissertation)
+    ├── Poster                                  # Poster (included in dissertation)
+    ├── Project Proposal                        # Project proposal (included in dissertation)
+    ├── Requirements Engineering                # Requirements engineering (included in dissertation)
     └── Simulated Annealing                     # Some of my SA notes
 ```
