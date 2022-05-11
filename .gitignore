@@ -2,3 +2,5 @@
 Open Questions.md
 *.DS_Store
 .idea/
+*.pyc
+.ipynb_checkpoints
